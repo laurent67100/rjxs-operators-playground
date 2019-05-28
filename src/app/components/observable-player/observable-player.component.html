@@ -1,0 +1,9 @@
+<iframe src="https://stackblitz.com/edit/angular?embed=1"></iframe>
+<div class="controls">
+  <button *ngIf="!subscribed" class="subscribe" (click)="onSubscribe()">Subscribe</button>
+  <button *ngIf="subscribed" class="unsubscribe" (click)="onUnsubscribe()">Unsubscribe</button>
+  <button class="clear" (click)="onClear()" [disabled]="consoleLines?.length === 0">Clear</button>
+</div>
+<ul class="console">
+  <li *ngFor="let item of consoleLines" [class]="item.type">{{item.text}}</li>
+</ul>

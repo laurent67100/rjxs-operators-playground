@@ -1,13 +1,17 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
-import { HelloComponent } from './hello.component';
+import { ObservablePlayerComponent } from './components/observable-player/observable-player.component';
+import { OfComponent } from './operators/of.component';
 
 @NgModule({
-  imports:      [ BrowserModule, FormsModule ],
-  declarations: [ AppComponent, HelloComponent ],
+  imports:      [ BrowserModule ],
+  declarations: [ 
+    AppComponent, 
+    ObservablePlayerComponent,
+  OfComponent
+  ],
   bootstrap:    [ AppComponent ]
 })
 export class AppModule { }

@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 
-interface operatorCatergory {
+interface OperatorCategory {
   name: string;
   operators: string[];
 }
@@ -14,7 +14,7 @@ export class AppComponent  {
 
   currentOperator: string;
 
-  operators: operatorCatergory[] = [
+  categories: OperatorCategory[] = [
     {
       name: 'Creation',
       operators: ['of', 'from', 'fromEvent']
