@@ -1,0 +1,18 @@
+* {
+  font-family: Lato;
+}
+
+.operators-container {
+    display: grid;
+    grid-template-rows: auto;
+
+  .col {
+    display: grid;
+  }
+
+  .title {
+    font-weight: bold;
+  }
+}
+
+
