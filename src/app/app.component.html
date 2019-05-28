@@ -1,10 +1,1 @@
-<ng-container *ngIf="!currentOperator">
-  <h1>RxJS Operators Playground</h1>
-  <div class="operators-container" >
-    <div class="category" *ngFor="let category of categories">
-      <div class="title">{{category.name}}</div>
-      <div class="operator" *ngFor="let operator of category.operators">{{operator}}</div>
-    </div>
-  </div>
-</ng-container>
-<app-of></app-of>
+<router-outlet></router-outlet>

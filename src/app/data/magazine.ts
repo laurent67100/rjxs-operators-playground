@@ -1,4 +1,4 @@
-export interface IMagazine {
+export interface IMagazineIssue {
   name: string;
   month: string;
   year: number;
@@ -6,14 +6,14 @@ export interface IMagazine {
 
 const names = ['IT Mag', 'Hodor Mag', 'Android News', 'Ng News'];
 const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
-const years = [2018, 2019, 2020];
+const years = [2017, 2018, 2019, 2020];
 
-export const magazines: IMagazine[] = [];
+export const magazineIssues: IMagazineIssue[] = [];
 
 for (let name of names) {
   for (let year of years) {
     for (let month of months) {
-      magazines.push({
+      magazineIssues.push({
         name: name,
         month: month,
         year: year

@@ -4,6 +4,11 @@ import { takeUntil } from 'rxjs/operators';
 import { DomSanitizer, SafeUrl } from '@angular/platform-browser';
 
 
+interface IExampleSource {
+  description: string;
+  observable: Observable<any>;
+}
+
 interface IConsoleLine {
   text: string;
   type: 'emission' | 'error' | 'complete';
@@ -16,14 +21,16 @@ interface IConsoleLine {
 })
 export class ObservablePlayerComponent implements OnInit, OnDestroy {
   
-  @Input() source$: Observable<any>;
+  @Input() sources: IExampleSource[];
   @Input() operatorCategory;
   @Input() operatorName;
+  @Input() operatorDescription: string[];
   
   
   private _subscription: Subscription;
   private _componentDestroyed = new Subject<void>();
   
+  source$: Observable<any>;
   consoleLines: IConsoleLine[] = [];
   stackblitzUrl: SafeUrl;
   
@@ -31,6 +38,7 @@ export class ObservablePlayerComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.stackblitzUrl = this.createStackblitzUrl();
+    this.source$ = this.sources[0].observable;
   }
   
   
@@ -46,7 +54,9 @@ error => this.consoleLines.push({ text: error, type: 'error' }),
   }
   
   onUnsubscribe(): void {
-    this._subscription.unsubscribe();
+    if (this._subscription && !this._subscription.closed) {
+      this._subscription.unsubscribe();
+    }
   }
   
   onClear() {
@@ -72,5 +82,11 @@ error => this.consoleLines.push({ text: error, type: 'error' }),
       `&file=src/app/operators/${this.operatorCategory}/${this.operatorName}/${this.operatorName}.component.ts`,
       `&hideExplorer=1&hideNavigation=1&view=editor`
     ].join(''));
+  }
+  
+  onChange(example: string) {
+    this.onUnsubscribe();
+    this.onClear();
+    this.source$ = this.sources.filter(s => s.desc === example)[0].observable;
   }
 }
