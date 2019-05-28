@@ -1,6 +1,7 @@
 import { Component, Input, OnDestroy, OnInit } from '@angular/core';
 import { Observable, Subject, Subscription } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
+import { DomSanitizer, SafeUrl } from '@angular/platform-browser';
 
 
 interface IConsoleLine {
@@ -16,17 +17,20 @@ interface IConsoleLine {
 export class ObservablePlayerComponent implements OnInit, OnDestroy {
   
   @Input() source$: Observable<any>;
+  @Input() operatorCategory;
+  @Input() operatorName;
+  
   
   private _subscription: Subscription;
   private _componentDestroyed = new Subject<void>();
-  private completed: boolean;
-  private errorMessage: string;
   
-  private consoleLines: IConsoleLine[] = [];
+  consoleLines: IConsoleLine[] = [];
+  stackblitzUrl: SafeUrl;
   
-  constructor() { }
+  constructor(private sanitizer: DomSanitizer) { }
 
   ngOnInit() {
+    this.stackblitzUrl = this.createStackblitzUrl();
   }
   
   
@@ -56,5 +60,17 @@ error => this.consoleLines.push({ text: error, type: 'error' }),
   
   get subscribed(): boolean {
     return this._subscription && !this._subscription.closed;
+  }
+  
+  
+  private createStackblitzUrl() {
+    if (!this.operatorCategory || !this.operatorName) {
+      return null;
+    }
+    return this.sanitizer.bypassSecurityTrustResourceUrl([
+      'https://stackblitz.com/edit/angular-dwza1y?embed=1',
+      `&file=src/app/operators/${this.operatorCategory}/${this.operatorName}/${this.operatorName}.component.ts`,
+      `&hideExplorer=1&hideNavigation=1&view=editor`
+    ].join(''));
   }
 }

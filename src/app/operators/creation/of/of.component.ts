@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { of } from 'rxjs';
-import { magazines } from '../data/magazine';
+import { magazines } from '../../../data/magazine';
 
 interface OperatorCategory {
   name: string;
@@ -10,7 +10,11 @@ interface OperatorCategory {
 @Component({
   selector: 'app-of',
   template:
-  `<app-observable-player [source$]="source$"></app-observable-player>
+  `<app-observable-player 
+          [source$]="source$"
+          operatorCategory="creation"
+          operatorName="of"
+  ></app-observable-player>
   `,
   styles: [
     
