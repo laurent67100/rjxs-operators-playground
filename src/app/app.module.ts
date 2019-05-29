@@ -37,8 +37,8 @@ import { WithLatestFromComponent } from './operators/combination/withLatestFrom.
 import { TimeoutComponent } from './operators/utility/timeout.component';
 import { FinalizeComponent } from './operators/utility/finalize.component';
 import { RepeatComponent } from './operators/utility/repeat.component';
-import { RetryComponent } from './operators/errorHandling/retry.component';
-import { CatchErrorComponent } from './operators/errorHandling/catchError.component';
+import { RetryComponent } from './operators/error-handling/retry.component';
+import { CatchErrorComponent } from './operators/error-andling/catchError.component';
 
 @NgModule({
   imports:      [ BrowserModule, OperatorsRoutingModule ],
