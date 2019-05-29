@@ -1,17 +1,49 @@
+h1 {
+  text-align: center;
+  margin-bottom: 50px;
+}
 .operators-container {
   display: grid;
   grid-template-rows: 1fr;
-  grid-template-columns: repeat(auto-fill, minmax(100px, auto));
+  grid-template-columns: repeat(auto-fill, minmax(180px, auto));
   grid-gap: 30px;
 
   .category {
-      display: flex;
-      flex-direction: column;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .title {
+    font-weight: bold;
+    font-size: 1.3rem;
+    padding: 10px;
+  }
+
+  .operator {
+    padding: 10px;
+    cursor: pointer;
+    &:hover {
+      background-color: #F0F0F0;
+      color: #ff1093;
+      border-radius: 2px;
+    }
   }
   
-  .title {
-      font-weight: bold;
+  &::after {
+    content: "";
+    background-image: url("https://aymen.co/wp-content/uploads/2017/01/reactive-js-thmb-1.jpg");
+    background-size: auto;
+    background-position: center bottom;
+    background-repeat: no-repeat;
+    opacity: 0.5;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    position: absolute;
+    z-index: -1;
   }
 }
+
 
 

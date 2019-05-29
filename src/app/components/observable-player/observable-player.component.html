@@ -1,4 +1,4 @@
-<h1>{{ operatorCategory }} Operators</h1>
+<h1>{{ replaceDashes(operatorCategory) | titlecase }} Operators</h1>
 <h2>{{ operatorName}}</h2>
 <ul class="operator-description" *ngIf="operatorDescription?.length > 0">
   <li *ngFor="let desc of operatorDescription">{{desc}}</li>
@@ -6,17 +6,19 @@
 <iframe *ngIf="stackblitzUrl" [src]="stackblitzUrl"></iframe>
 
 <select (change)="onChange($event.target.value)">
-  <option *ngFor="let source of sources" [value]="source.desc">{{source.desc}}</option>
+  <option *ngFor="let source of sources" [value]="source.description">{{source.description}}</option>
 </select>
 
-<div class="controls">
-  <button *ngIf="!subscribed" class="subscribe" (click)="onSubscribe()">Subscribe</button>
-  <button *ngIf="subscribed" class="unsubscribe" (click)="onUnsubscribe()">Unsubscribe</button>
-  <button class="clear" (click)="onClear()" [disabled]="consoleLines?.length === 0">Clear</button>
+<div class="projected-content"  *ngIf="autoSubscribe">
+  <ng-content></ng-content>
 </div>
 
-
-
+<div class="controls">
+  <button *ngIf="!autoSubscribe && !subscribed" class="subscribe" (click)="onSubscribe()">Subscribe</button>
+  <button *ngIf="!autoSubscribe && subscribed" class="unsubscribe" (click)="onUnsubscribe()">Unsubscribe</button>
+  <button class="clear" (click)="onClear()" [disabled]="consoleLines?.length === 0">Clear</button>
+  <div class="time" *ngIf="forceShowTimer || !autoSubscribe">{{elapsedTime$ | async | duration }}</div>
+</div>
 <ul class="console">
   <li *ngFor="let item of consoleLines" [class]="item.type">{{item.text}}</li>
 </ul>

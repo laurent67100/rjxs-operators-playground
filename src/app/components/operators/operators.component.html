@@ -2,6 +2,6 @@
 <div class="operators-container" >
   <div class="category" *ngFor="let category of categories">
     <div class="title">{{category.name}}</div>
-    <div class="operator" *ngFor="let operator of category.operators" [routerLink]="[category.name.toLowerCase(), operator]">{{operator}}</div>
+    <div class="operator" *ngFor="let operator of category.operators" [routerLink]="[replaceSpaces(category.name).toLowerCase(), operator]">{{operator}}</div>
   </div>
 </div>

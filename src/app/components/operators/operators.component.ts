@@ -17,11 +17,27 @@ export class OperatorsComponent implements OnInit {
   categories: OperatorCategory[] = [
     {
       name: 'Creation',
-      operators: ['of', 'from', 'fromEvent']
+      operators: ['of', 'from', 'interval', 'range', 'timer', 'fromEvent' ]
+    },
+    {
+      name: 'Filtering',
+      operators: ['filter', 'take', 'first', 'last', 'skip', 'distinctUntilChanged', 'debounceTime', 'takeUntil' ]
+    },
+    {
+      name: 'Transformation',
+      operators: ['map', 'pluck', 'mergeMap', 'concatMap', 'switchMap', 'exhaustMap']
+    },
+    {
+      name: 'Combination',
+      operators: ['merge', 'combineLatest', 'race', 'zip', 'pairwise', 'startWith', 'withLatestFrom']
     },
     {
       name: 'Utility',
-      operators: ['tap', 'from', 'fromEvent']
+      operators: ['tap', 'timeout', 'finalize', 'repeat', 'retry']
+    },
+    {
+      name: 'Error Handling',
+      operators: ['retry']
     }
   ];
   
@@ -29,5 +45,9 @@ export class OperatorsComponent implements OnInit {
 
   ngOnInit() {
   }
-
+  
+  replaceSpaces(str: string) : string {
+    return str.replace(/\s/g, '-');
+  }
+  
 }

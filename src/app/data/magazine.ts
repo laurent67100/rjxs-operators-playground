@@ -3,8 +3,15 @@ export interface IMagazineIssue {
   month: string;
   year: number;
 }
+export enum MagazineName {
+  ItMag = 'IT Mag',
+  HodorMag = 'Hodor Mag',
+  AndroidNews = 'Android News',
+  NgNews = 'Ng News'
+  
+}
 
-const names = ['IT Mag', 'Hodor Mag', 'Android News', 'Ng News'];
+const names = Object.keys(MagazineName).map(key => MagazineName[key]);
 const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
 const years = [2017, 2018, 2019, 2020];
 
