@@ -34,6 +34,7 @@ export class TakeUntilComponent implements OnInit {
     const buttonClicked$ = fromEvent(this.button.nativeElement, 'click');
     
     this.sourceClick$ = interval(1000).pipe(
+      filter(n => n % 2 === 0),
       takeUntil(buttonClicked$)
     );
     

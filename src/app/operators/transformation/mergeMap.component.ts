@@ -1,6 +1,6 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { from, fromEvent, merge, Observable, of } from 'rxjs';
-import { delay, filter, map, mapTo, mergeMap, repeat, take } from 'rxjs/operators';
+import { delay, filter, map, mapTo, mergeMap, repeat, take, concatAll, mergeAll } from 'rxjs/operators';
 import { magazineIssues, MagazineName } from '../../data/magazine';
 
 
@@ -41,7 +41,8 @@ export class MergeMapComponent implements OnInit {
     
     // simulate a backend search for magazine name with a 1.5sec delay. Take first 2 issues of 2018
     const backendSearch = (magazineName?: string) => of(magazineIssues).pipe(
-      map(magazines => magazines.filter(issue => issue.name === magazineName && issue.year === 2018)),
+      mergeAll(),
+      filter(issue => issue.name === magazineName && issue.year === 2018),
       take(2),
       delay(1500)
     );

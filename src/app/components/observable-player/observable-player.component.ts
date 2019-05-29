@@ -49,7 +49,6 @@ export class ObservablePlayerComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.stackblitzUrl = this.createStackblitzUrl();
-    console.log('url', this.stackblitzUrl)
     this.source$ = this.sources[0].observable;
     
     if (this.autoSubscribe) {

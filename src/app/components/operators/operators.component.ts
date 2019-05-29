@@ -33,7 +33,7 @@ export class OperatorsComponent implements OnInit {
     },
     {
       name: 'Utility',
-      operators: ['tap', 'timeout', 'finalize', 'repeat', 'retry']
+      operators: ['tap', 'timeout', 'finalize', 'repeat']
     },
     {
       name: 'Error Handling',

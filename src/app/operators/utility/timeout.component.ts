@@ -1,6 +1,6 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { from, fromEvent, merge, Observable, of } from 'rxjs';
-import { delay, exhaustMap, filter, mapTo } from 'rxjs/operators';
+import { delay, exhaustMap, filter, mapTo, timeout, mergeAll } from 'rxjs/operators';
 import { magazineIssues } from '../../data/magazine';
 
 
@@ -17,7 +17,7 @@ import { magazineIssues } from '../../data/magazine';
               ]"
   >
     <button #allBtn>All Magazine issues</button>
-    <button #allDelayBtn>ll Magazine issues (5secs request)</button>
+    <button #allDelayBtn>All Magazine issues (5secs request)</button>
   </app-observable-player>
   `,
   styles: [`
@@ -38,8 +38,11 @@ export class TimeoutComponent implements OnInit {
     
     // simulate a backend search for magazines. Pass in request time.
     const backendSearch = (delayMs: number) => of(magazineIssues).pipe(
-      delay(delayMs)
+      mergeAll(),
+      delay(delayMs),
+      timeout(1500)
     );
+
   
     this.source$ = merge(
       fromEvent(this.allBtn.nativeElement, 'click').pipe(mapTo(0)),

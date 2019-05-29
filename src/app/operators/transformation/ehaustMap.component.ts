@@ -1,6 +1,6 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { from, fromEvent, merge, Observable, of } from 'rxjs';
-import { concatMap, delay, exhaustMap, filter, map, mapTo, mergeMap, switchMap, take } from 'rxjs/operators';
+import { concatMap, delay, exhaustMap, filter, map, mapTo, mergeMap, switchMap, take, mergeAll } from 'rxjs/operators';
 import { magazineIssues, MagazineName } from '../../data/magazine';
 
 
@@ -10,7 +10,7 @@ import { magazineIssues, MagazineName } from '../../data/magazine';
   `<app-observable-player 
           [autoSubscribe]="true"
           [sources]="[ 
-              { description: 'Get list of magazines issues of year 2018 only for last button clicked', observable: source$ }
+              { description: 'Get first 2 magazines issues of year 2018 only for last button clicked', observable: source$ }
            ]"
           [operatorDescription]="[
               'Maps to a new inner observable',
@@ -41,7 +41,9 @@ export class ExhaustMapComponent implements OnInit {
   
     // simulate a backend search for magazine name with a 1.5sec delay. Take first 2 issues of 2018
     const backendSearch = (magazineName?: string) => of(magazineIssues).pipe(
-      map(magazines => magazines.filter(issue => issue.name === magazineName && issue.year === 2018)),      take(2),
+      mergeAll(),
+      filter(issue => issue.name === magazineName && issue.year === 2018),
+      take(2),
       delay(1500)
     );
   

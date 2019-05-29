@@ -45,11 +45,10 @@ export class RepeatComponent implements OnInit {
   
     const mouseDown$ = fromEvent(this.dragZone.nativeElement, 'mousedown');
     const mouseUp$ = fromEvent(this.dragZone.nativeElement, 'mouseup');
-    const mouseMove$ = fromEvent(this.dragZone.nativeElement, 'mousemove').pipe(debounceTime(50));
+    const mouseMove$ = fromEvent(this.dragZone.nativeElement, 'mousemove').pipe(debounceTime(10));
   
     const dragging$ = mouseDown$.pipe(
       mergeMap(() => mouseMove$),
-      tap(console.log),
       tap(() => this._isDragging = true),
       takeUntil(mouseUp$),
       finalize(() => this._isDragging = false)
