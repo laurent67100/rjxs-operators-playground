@@ -49,6 +49,7 @@ export class ObservablePlayerComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.stackblitzUrl = this.createStackblitzUrl();
+    console.log('url', this.stackblitzUrl)
     this.source$ = this.sources[0].observable;
     
     if (this.autoSubscribe) {
@@ -116,8 +117,8 @@ error => this.consoleLines.push({ text: error, type: 'error' }),
       return null;
     }
     return this.sanitizer.bypassSecurityTrustResourceUrl([
-      'https://stackblitz.com/edit/angular-dwza1y?embed=1',
-      `&file=src/app/operators/${this.operatorCategory}/${this.operatorName}/${this.operatorName}.component.ts`,
+      'https://stackblitz.com/edit/reactive-rxjs-operators-playground?embed=1',
+      `&file=src/app/operators/${this.operatorCategory}/${this.operatorName}.component.ts`,
       `&hideExplorer=1&hideNavigation=1&view=editor`
     ].join(''));
   }

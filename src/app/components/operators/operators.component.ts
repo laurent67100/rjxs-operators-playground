@@ -37,7 +37,7 @@ export class OperatorsComponent implements OnInit {
     },
     {
       name: 'Error Handling',
-      operators: ['retry']
+      operators: ['retry', 'catchError']
     }
   ];
   

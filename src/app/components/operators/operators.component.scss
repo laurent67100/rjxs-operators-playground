@@ -1,11 +1,11 @@
 h1 {
   text-align: center;
-  margin-bottom: 50px;
+  margin-bottom: 75px;
 }
 .operators-container {
   display: grid;
   grid-template-rows: 1fr;
-  grid-template-columns: repeat(auto-fill, minmax(180px, auto));
+  grid-template-columns: repeat(auto-fit, minmax(180px, auto));
   grid-gap: 30px;
 
   .category {
@@ -29,7 +29,10 @@ h1 {
     }
   }
   
-  &::after {
+}
+
+@media(min-width: 1000px) {
+  .operators-container::after {
     content: "";
     background-image: url("https://aymen.co/wp-content/uploads/2017/01/reactive-js-thmb-1.jpg");
     background-size: auto;
@@ -42,7 +45,7 @@ h1 {
     right: 0;
     position: absolute;
     z-index: -1;
-  }
+  } 
 }
 
 

@@ -3,15 +3,15 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
 import { ObservablePlayerComponent } from './components/observable-player/observable-player.component';
-import { OfComponent } from './operators/creation/of/of.component';
+import { OfComponent } from './operators/creation/of.component';
 import { OperatorsRoutingModule } from './routing.module';
 import { OperatorsComponent } from './components/operators/operators.component';
-import { FromComponent } from './operators/creation/from/from.component';
-import { IntervalComponent } from './operators/creation/interval/interval.component';
-import { RangeComponent } from './operators/creation/range/range.component';
+import { FromComponent } from './operators/creation/from.component';
+import { IntervalComponent } from './operators/creation/interval.component';
+import { RangeComponent } from './operators/creation/range.component';
 import { DurationPipe } from './pipes/duration.pipe';
-import { TimerComponent } from './operators/creation/timer/timer.component';
-import { FromEventComponent } from './operators/creation/fromEvent/fromEvent.component';
+import { TimerComponent } from './operators/creation/timer.component';
+import { FromEventComponent } from './operators/creation/fromEvent.component';
 import { FilterComponent } from './operators/filtering/filter.component';
 import { TakeComponent } from './operators/filtering/take.component';
 import { FirstComponent } from './operators/filtering/first.component';
@@ -38,6 +38,7 @@ import { TimeoutComponent } from './operators/utility/timeout.component';
 import { FinalizeComponent } from './operators/utility/finalize.component';
 import { RepeatComponent } from './operators/utility/repeat.component';
 import { RetryComponent } from './operators/errorHandling/retry.component';
+import { CatchErrorComponent } from './operators/errorHandling/catchError.component';
 
 @NgModule({
   imports:      [ BrowserModule, OperatorsRoutingModule ],
@@ -77,7 +78,8 @@ import { RetryComponent } from './operators/errorHandling/retry.component';
     TimeoutComponent,
     FinalizeComponent,
     RepeatComponent,
-    RetryComponent
+    RetryComponent,
+    CatchErrorComponent
     
   ],
   bootstrap:    [ AppComponent ]

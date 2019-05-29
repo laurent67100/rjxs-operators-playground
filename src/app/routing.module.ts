@@ -1,13 +1,13 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { OfComponent } from './operators/creation/of/of.component';
+import { OfComponent } from './operators/creation/of.component';
 import { APP_BASE_HREF } from '@angular/common';
 import { OperatorsComponent } from './components/operators/operators.component';
-import { FromComponent } from './operators/creation/from/from.component';
-import { IntervalComponent } from './operators/creation/interval/interval.component';
-import { RangeComponent } from './operators/creation/range/range.component';
-import { TimerComponent } from './operators/creation/timer/timer.component';
-import { FromEventComponent } from './operators/creation/fromEvent/fromEvent.component';
+import { FromComponent } from './operators/creation/from.component';
+import { IntervalComponent } from './operators/creation/interval.component';
+import { RangeComponent } from './operators/creation/range.component';
+import { TimerComponent } from './operators/creation/timer.component';
+import { FromEventComponent } from './operators/creation/fromEvent.component';
 import { TakeUntilComponent } from './operators/filtering/takeUntil.component';
 import { DistinctUntilChangedComponent } from './operators/filtering/distinctUntilChanged.component';
 import { DebounceTimeComponent } from './operators/filtering/debounceTime.component';
@@ -34,6 +34,7 @@ import { TimeoutComponent } from './operators/utility/timeout.component';
 import { FinalizeComponent } from './operators/utility/finalize.component';
 import { RepeatComponent } from './operators/utility/repeat.component';
 import { RetryComponent } from './operators/errorHandling/retry.component';
+import { CatchErrorComponent } from './operators/errorHandling/catchError.component';
 
 const routes: Routes = [
   
@@ -71,7 +72,8 @@ const routes: Routes = [
   { path: 'operators/utility/timeout', component: TimeoutComponent },
   { path: 'operators/utility/finalize', component: FinalizeComponent },
   { path: 'operators/utility/repeat', component: RepeatComponent },
-  { path: 'operators/error-handling/retry', component: RetryComponent }
+  { path: 'operators/error-handling/retry', component: RetryComponent },
+  { path: 'operators/error-handling/catchError', component: CatchErrorComponent }
   
   
   

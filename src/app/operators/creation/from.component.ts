@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { from } from 'rxjs';
-import { magazineIssues } from '../../../data/magazine';
+import { magazineIssues } from '../../data/magazine';
 
 @Component({
   selector: 'app-from',

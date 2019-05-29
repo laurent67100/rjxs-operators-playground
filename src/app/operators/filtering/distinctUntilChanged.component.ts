@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { of } from 'rxjs';
+import { from, of } from 'rxjs';
 import { distinctUntilChanged } from 'rxjs/operators';
 
 
@@ -22,7 +22,7 @@ import { distinctUntilChanged } from 'rxjs/operators';
 })
 export class DistinctUntilChangedComponent  {
   
-  source$ = of([1, 2, 2, 2, 3, 3, 1, 2]).pipe(
+  source$ = from([1, 2, 2, 2, 3, 3, 1, 2]).pipe(
     distinctUntilChanged()
   );
   
