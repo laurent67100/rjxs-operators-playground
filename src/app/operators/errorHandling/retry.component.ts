@@ -31,7 +31,6 @@ export class RetryComponent implements OnInit {
   
   @ViewChild('fetchBtn') fetchBtn: ElementRef<any>;
   forceShowTimer = false;
-  
   source$: Observable<any>;
   sourceRetry$: Observable<any>;
   
@@ -43,7 +42,7 @@ export class RetryComponent implements OnInit {
       tap(() => this.forceShowTimer = true),
       tap(() => console.log('Checking server...')),
       delay(1000),
-      mergeMap(() => throwError(`500 Server Error ${attempts ? ' after ' + attempts + ' attempts' : ''}`))
+      mergeMap(() => throwError(`500 Server Error ${attempts ? ' after ' + attempts + ' attempts' : ''}`)),
       finalize(() => this.forceShowTimer = false)
     );
   
