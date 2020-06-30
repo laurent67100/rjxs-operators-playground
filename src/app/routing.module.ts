@@ -35,6 +35,7 @@ import { FinalizeComponent } from './operators/utility/finalize.component';
 import { RepeatComponent } from './operators/utility/repeat.component';
 import { RetryComponent } from './operators/error-handling/retry.component';
 import { CatchErrorComponent } from './operators/error-handling/catchError.component';
+import {AjaxComponent} from './operators/creation/ajax.component';
 
 const routes: Routes = [
   
@@ -42,6 +43,7 @@ const routes: Routes = [
   { path: '', redirectTo: '/operators', pathMatch: 'full' },
   { path: 'operators', component: OperatorsComponent },
   { path: 'operators/creation/of', component: OfComponent },
+  { path: 'operators/creation/ajax', component: AjaxComponent },
   { path: 'operators/creation/from', component: FromComponent },
   { path: 'operators/creation/interval', component: IntervalComponent },
   { path: 'operators/creation/range', component: RangeComponent },

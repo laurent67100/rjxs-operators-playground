@@ -39,16 +39,18 @@ import { FinalizeComponent } from './operators/utility/finalize.component';
 import { RepeatComponent } from './operators/utility/repeat.component';
 import { RetryComponent } from './operators/error-handling/retry.component';
 import { CatchErrorComponent } from './operators/error-handling/catchError.component';
+import {AjaxComponent} from './operators/creation/ajax.component';
 
 @NgModule({
   imports:      [ BrowserModule, OperatorsRoutingModule ],
-  declarations: [ 
+  declarations: [
     AppComponent,
-    DurationPipe, 
+    DurationPipe,
     ObservablePlayerComponent,
     OperatorsComponent,
     OfComponent,
     FromComponent,
+    AjaxComponent,
     IntervalComponent,
     RangeComponent,
     TimerComponent,

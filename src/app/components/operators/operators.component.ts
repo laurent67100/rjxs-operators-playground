@@ -17,15 +17,15 @@ export class OperatorsComponent implements OnInit {
   categories: OperatorCategory[] = [
     {
       name: 'Creation',
-      operators: ['of', 'from', 'interval', 'range', 'timer', 'fromEvent' ]
+      operators: ['of', 'from', 'ajax', 'interval', 'timer', 'fromEvent' ]
     },
     {
       name: 'Filtering',
-      operators: ['filter', 'take', 'first', 'last', 'skip', 'distinctUntilChanged', 'debounceTime', 'takeUntil' ]
+      operators: ['filter', 'take', 'skip', 'distinctUntilChanged', 'debounceTime', 'takeUntil' ]
     },
     {
       name: 'Transformation',
-      operators: ['map', 'pluck', 'mergeMap', 'concatMap', 'switchMap', 'exhaustMap']
+      operators: ['map', 'mergeMap', 'concatMap', 'switchMap', 'exhaustMap']
     },
     {
       name: 'Combination',
