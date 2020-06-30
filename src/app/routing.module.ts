@@ -36,6 +36,7 @@ import { RepeatComponent } from './operators/utility/repeat.component';
 import { RetryComponent } from './operators/error-handling/retry.component';
 import { CatchErrorComponent } from './operators/error-handling/catchError.component';
 import {AjaxComponent} from './operators/creation/ajax.component';
+import {ForkJoinComponent} from './operators/combination/forkJoin.component';
 
 const routes: Routes = [
   
@@ -66,6 +67,7 @@ const routes: Routes = [
   { path: 'operators/combination/merge', component: MergeComponent },
   { path: 'operators/combination/combineLatest', component: CombineLatestComponent },
   { path: 'operators/combination/race', component: RaceComponent },
+  { path: 'operators/combination/forkJoin', component: ForkJoinComponent },
   { path: 'operators/combination/zip', component: ZipComponent },
   { path: 'operators/combination/pairwise', component: PairwiseComponent },
   { path: 'operators/combination/startWith', component: StartWithComponent },

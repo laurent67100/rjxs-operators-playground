@@ -6,9 +6,9 @@ import { debounceTime, finalize, mergeMap, repeat, takeUntil, tap } from 'rxjs/o
 @Component({
   selector: 'app-repeat',
   template:
-  `<app-observable-player 
+  `<app-observable-player
           [autoSubscribe]="true"
-          [sources]="[ 
+          [sources]="[
               { description: 'Log when when the user is dragging (no-repeat)', observable: source$ },
               { description: 'Log when when the user is dragging (repeat)', observable: sourceRepeat$ }
            ]"
@@ -22,11 +22,12 @@ import { debounceTime, finalize, mergeMap, repeat, takeUntil, tap } from 'rxjs/o
   styles: [`
     .drag-zone {
       height: 50px;
-      width: 100%; 
+      width: 100%;
     }
     .dragging  .projected-content {
         box-shadow: inset 0px 0px 4px 0px #a5a5a5;
-        background-color: #DADADA !important;
+        background-color: #FF4599 !important;
+        cursor: grabbing;
     }
   `],
   encapsulation: ViewEncapsulation.None
@@ -35,7 +36,7 @@ export class RepeatComponent implements OnInit {
   @ViewChild('dragZone') dragZone: ElementRef<any>;
   
   @HostBinding('class.dragging')
-  private _isDragging = false;
+  isDragging = false;
   
   source$: Observable<any>;
   sourceRepeat$: Observable<any>;
@@ -49,9 +50,9 @@ export class RepeatComponent implements OnInit {
   
     const dragging$ = mouseDown$.pipe(
       mergeMap(() => mouseMove$),
-      tap(() => this._isDragging = true),
+      tap(() => this.isDragging = true),
       takeUntil(mouseUp$),
-      finalize(() => this._isDragging = false)
+      finalize(() => this.isDragging = false)
     );
     
     this.source$ = dragging$;

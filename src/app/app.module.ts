@@ -40,6 +40,7 @@ import { RepeatComponent } from './operators/utility/repeat.component';
 import { RetryComponent } from './operators/error-handling/retry.component';
 import { CatchErrorComponent } from './operators/error-handling/catchError.component';
 import {AjaxComponent} from './operators/creation/ajax.component';
+import { ForkJoinComponent } from './operators/combination/forkJoin.component';
 
 @NgModule({
   imports:      [ BrowserModule, OperatorsRoutingModule ],
@@ -72,6 +73,7 @@ import {AjaxComponent} from './operators/creation/ajax.component';
     MergeComponent,
     CombineLatestComponent,
     RaceComponent,
+    ForkJoinComponent,
     ZipComponent,
     PairwiseComponent,
     StartWithComponent,

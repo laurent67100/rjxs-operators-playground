@@ -29,7 +29,7 @@ export class OperatorsComponent implements OnInit {
     },
     {
       name: 'Combination',
-      operators: ['merge', 'combineLatest', 'race', 'zip', 'pairwise', 'startWith', 'withLatestFrom']
+      operators: ['merge', 'combineLatest', 'forkJoin', 'zip', 'race', 'pairwise', 'startWith', 'withLatestFrom']
     },
     {
       name: 'Utility',
