@@ -4,11 +4,9 @@ export interface IMagazineIssue {
   year: number;
 }
 export enum MagazineName {
-  ItMag = 'IT Mag',
   HodorMag = 'Hodor Mag',
   AndroidNews = 'Android News',
   NgNews = 'Ng News'
-  
 }
 
 const names = Object.keys(MagazineName).map(key => MagazineName[key]);
@@ -28,3 +26,5 @@ for (let name of names) {
     }
   }
 };
+
+console.log('magazineIssues', magazineIssues);

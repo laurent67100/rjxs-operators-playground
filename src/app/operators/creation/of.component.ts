@@ -5,20 +5,21 @@ import { magazineIssues } from '../../data/magazine';
 @Component({
   selector: 'app-of',
   template:
-  `<app-observable-player 
-          [sources]="[ 
+  `<app-observable-player
+          [sources]="[
               { description: 'Emit sequence of number values 1 to 5', observable: numberSource$ },
               { description: 'Emit 3 issues of magazines', observable: magazineSource$ }
            ]"
           [operatorDescription]="[
               'Create an observable from a single value or from a list of values.',
-              'Emits values in sequence'
+              'Emits values in sequence',
+              'Synchronous'
               ]"
   >
   </app-observable-player>
   `,
   styles: [
-    
+  
   ]
 })
 export class OfComponent  {
